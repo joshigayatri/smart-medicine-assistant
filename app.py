@@ -45,6 +45,12 @@ h1, h2, h3 {
 # LOAD MODEL
 # --------------------------------------------------
 
+import gdown
+
+url = "https://drive.google.com/file/d/XXXXX/view?usp=sharing"
+
+gdown.download(url, "pill_model.h5", quiet=False)
+
 model = tf.keras.models.load_model("pill_model.h5")
 
 # --------------------------------------------------
