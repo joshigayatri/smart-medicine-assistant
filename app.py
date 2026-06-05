@@ -46,13 +46,18 @@ h1, h2, h3 {
 # --------------------------------------------------
 
 import gdown
-from tensorflow.keras.models import load_model
+import os
 
-url = "https://drive.google.com/uc?id=1AsmeRrm1L-S_ojc4j0G_eCnE5Zp4zyZm"
+MODEL_ID = "1SINc6GP714RsxLgSydWINSl2rHAhniJW"
 
-gdown.download(url, "pill_model.h5", quiet=False)
+if not os.path.exists("pill_model.h5"):
+    gdown.download(
+        f"https://drive.google.com/uc?id={MODEL_ID}",
+        "pill_model.h5",
+        quiet=False
+    )
 
-model = load_model("pill_model.h5")
+model = tf.keras.models.load_model("pill_model.h5")
 
 # --------------------------------------------------
 # CLASS NAMES
